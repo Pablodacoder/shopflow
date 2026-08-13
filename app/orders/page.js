@@ -51,7 +51,7 @@ export default function OrdersPage() {
   if (state.error) {
     return (
       <main style={{ padding: 24, color: "#b00020" }}>
-        Couldn't load orders: {state.error}. <button onClick={() => location.reload()}>Retry</button>
+        Couldn&apos;t load orders: {state.error}. <button onClick={() => location.reload()}>Retry</button>
       </main>
     );
   }
@@ -60,7 +60,7 @@ export default function OrdersPage() {
     return (
       <main style={{ padding: 24 }}>
         <h1>My Orders</h1>
-        <p>You haven't placed any orders yet.</p>
+        <p>You haven&apos;t placed any orders yet.</p>
       </main>
     );
   }

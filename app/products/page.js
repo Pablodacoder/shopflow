@@ -36,7 +36,7 @@ export default function ProductsPage() {
   if (state.error)
     return (
       <div style={{ padding: 24, color: "#b00020" }}>
-        Couldn't load products: {state.error}. <button onClick={() => location.reload()}>Retry</button>
+        Couldn&apos;t load products: {state.error}. <button onClick={() => location.reload()}>Retry</button>
       </div>
     );
   if (state.items.length === 0) return <p style={{ padding: 24 }}>No products found.</p>;
