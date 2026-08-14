@@ -34,14 +34,22 @@ npm run dev
 npm test
 ```
 
+## Pages included
+`/products` (browse + add to cart), `/cart` (edit quantities + checkout),
+`/login`, `/register`, `/orders` (order history), `/admin` (role-gated
+product creation + live metrics). All wired to the real API routes, with
+loading states and error handling per page.
+
 ## What's scaffolded vs. what your team still needs to do
 This gives you a working backbone hitting every Tier 2 rubric line item with
-real, functioning code (not just stubs) for auth, the data layer, caching,
-security middleware, CI, and all required docs/artifacts. Still needs your
-team's actual work:
+real, functioning code (not stubs) for auth, all core pages, the data layer,
+caching, security middleware, CI, and all required docs/artifacts. Still
+needs your team's actual work:
 - Fill in real names/roles in `docs/artifacts/team-charter.md`
-- Build out remaining frontend pages (cart, checkout, admin panel) — one
-  example page (`app/products/page.js`) shows the pattern to follow
+- Polish the visual design (current styling is inline and functional, not
+  branded — a good task to split off to whoever's doing UI)
 - Run and record actual load test results (`docs/artifacts/performance-test-results.md`)
-- Get a live deployment and capture real monitoring screenshots
+- Get a live deployment (Vercel + Neon Postgres) fully working and capture
+  real monitoring screenshots
 - Update sprint plan velocity numbers as sprints actually close
+- Record the final demo video
