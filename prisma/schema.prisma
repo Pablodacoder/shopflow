@@ -55,6 +55,7 @@ model Product {
   description String
   priceCents  Int
   stock       Int         @default(0)
+  imageUrl    String?     // nullable: falls back to a placeholder in the UI when empty
   categoryId  String
   category    Category    @relation(fields: [categoryId], references: [id])
   createdAt   DateTime    @default(now())

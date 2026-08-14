@@ -52,7 +52,44 @@ export default function ProductsPage() {
         }}
       >
         {state.items.map((p) => (
-          <div key={p.id} style={{ border: "1px solid #e2e2e2", borderRadius: 8, padding: 16 }}>
+          <div key={p.id} style={{ border: "1px solid #e2e2e2", borderRadius: 8, overflow: "hidden" }}>
+            <div
+              style={{
+                width: "100%",
+                aspectRatio: "1 / 1",
+                background: "#f5f5f5",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {p.imageUrl ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={p.imageUrl}
+                  alt={p.name}
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                    e.currentTarget.nextSibling.style.display = "flex";
+                  }}
+                />
+              ) : null}
+              <div
+                style={{
+                  display: p.imageUrl ? "none" : "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "100%",
+                  height: "100%",
+                  color: "#bbb",
+                  fontSize: 13,
+                }}
+              >
+                No image
+              </div>
+            </div>
+            <div style={{ padding: 16 }}>
             <h3 style={{ margin: "0 0 8px" }}>{p.name}</h3>
             <p style={{ color: "#666", fontSize: 14 }}>{p.category?.name}</p>
             <p style={{ fontWeight: 600 }}>${(p.priceCents / 100).toFixed(2)}</p>
@@ -76,6 +113,7 @@ export default function ProductsPage() {
             >
               {justAdded === p.id ? "Added ✓" : "Add to cart"}
             </button>
+            </div>
           </div>
         ))}
       </div>
