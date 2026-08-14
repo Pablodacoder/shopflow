@@ -3,20 +3,16 @@
 ## Team
 | Name | Role | Primary responsibility |
 |------|------|------------------------|
-| [Your name] | Tech Lead / Backend | Auth, order service, CI/CD |
-| [Teammate 2] | Frontend Lead | Product/cart/checkout UI, responsive design |
-| [Teammate 3] | Data/Backend | Prisma schema, migrations, complex queries, caching |
-| [Teammate 4] | QA / DevOps / Docs | Tests, load testing, monitoring, documentation |
-
-*(Fill in real names — this table is the first thing to edit.)*
+| Paul Cobourne | Tech Lead / Backend & DevOps | Repository setup, database, authentication, order service, deployment, CI/CD |
+| Muhhammad Adeel Ashraf | Contributor | Feature enhancements and improvements |
+| Ayan Khalliq | Frontend Contributor | Product image support and display |
 
 ## Working agreement
-- **Communication**: [Discord/Slack] channel for day-to-day; standup async
-  each morning (what I did / what I'm doing / blockers).
+- **Communication**: group chat for day-to-day updates.
 - **Branching**: `main` is always deployable. Feature branches
   `feat/<short-name>`, PR required before merge, at least 1 reviewer.
 - **Commit style**: conventional commits (`feat:`, `fix:`, `docs:`, `test:`).
-- **Meetings**: sync check-in [2x/week], async updates otherwise.
+- **Meetings**: async check-ins via group chat.
 
 ## Decision-making
 Technical decisions with more than one reasonable option get an ADR
