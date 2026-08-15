@@ -13,8 +13,25 @@ function getCsrfToken() {
 export default function RegisterPage() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [status, setStatus] = useState({ loading: false, error: null });
+  const [passwordStrength, setPasswordStrength] = useState("");
   const router = useRouter();
 
+  function checkPasswordStrength(password) {
+  if (password.length < 8) {
+    return "Weak";
+  }
+
+  if (
+    /[A-Z]/.test(password) &&
+    /[a-z]/.test(password) &&
+    /[0-9]/.test(password) &&
+    /[^A-Za-z0-9]/.test(password)
+  ) {
+    return "Strong";
+  }
+
+  return "Medium";
+}
   async function handleSubmit(e) {
     e.preventDefault();
     setStatus({ loading: true, error: null });
@@ -65,9 +82,20 @@ export default function RegisterPage() {
             required
             minLength={8}
             value={form.password}
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
+            onChange={(e) => {
+                const value = e.target.value;
+                setForm({ ...form, password: value });
+                setPasswordStrength(checkPasswordStrength(value));
+            }}
+            
             style={inputStyle}
           />
+
+          {form.password && (
+                <p>
+                  Password strength: <strong>{passwordStrength}</strong>
+                </p>
+            )}
         </label>
         {status.error && <p style={{ color: "#b00020", fontSize: 14 }}>{status.error}</p>}
         <button type="submit" disabled={status.loading} style={buttonStyle}>
