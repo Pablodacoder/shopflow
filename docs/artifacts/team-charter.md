@@ -4,7 +4,7 @@
 | Name | Role | Primary responsibility |
 |------|------|------------------------|
 | Paul Cobourne | Tech Lead / Backend & DevOps | Repository setup, database, authentication, order service, deployment, CI/CD |
-| Muhhammad Adeel Ashraf | Contributor | Feature enhancements and improvements |
+| Muhhammad Adeel Ashraf |Frontend Contributor | Feature enhancements and improvements |
 | Ayan Khalliq | Frontend Contributor | Product image support and display |
 
 ## Working agreement
