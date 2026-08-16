@@ -7,6 +7,7 @@ export default function ProductsPage() {
   const [state, setState] = useState({ items: [], loading: true, error: null });
   const { addItem } = useCart();
   const [justAdded, setJustAdded] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   function handleAdd(product) {
     addItem(product, 1);
@@ -40,10 +41,26 @@ export default function ProductsPage() {
       </div>
     );
   if (state.items.length === 0) return <p style={{ padding: 24 }}>No products found.</p>;
+  const filteredItems = state.items.filter((product) =>
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
-  return (
+    return (
     <main style={{ padding: 24 }}>
       <h1>Products</h1>
+      <input
+          type="text"
+          placeholder="Search products..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          style={{
+            width: "100%",
+            maxWidth: 400,
+            padding: 10,
+            marginBottom: 20,
+            boxSizing: "border-box",
+          }}
+        />
       <div
         style={{
           display: "grid",
@@ -51,7 +68,7 @@ export default function ProductsPage() {
           gap: 16,
         }}
       >
-        {state.items.map((p) => (
+        {filteredItems.map((p) => (
           <div key={p.id} style={{ border: "1px solid #e2e2e2", borderRadius: 8, overflow: "hidden" }}>
             <div
               style={{
