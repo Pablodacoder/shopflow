@@ -3,8 +3,8 @@ import { cache } from "../lib/patterns/cache";
 import { NotificationFactory } from "../lib/patterns/notificationFactory";
 
 describe("CacheService (Singleton)", () => {
-  it("returns the same instance on repeated import", () => {
-    const cache2 = require("../lib/patterns/cache").cache;
+  it("returns the same instance on repeated import", async () => {
+    const { cache: cache2 } = await import("../lib/patterns/cache");
     expect(cache).toBe(cache2);
   });
 
