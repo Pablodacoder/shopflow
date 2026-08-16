@@ -110,8 +110,17 @@ export default function ProductsPage() {
             <h3 style={{ margin: "0 0 8px" }}>{p.name}</h3>
             <p style={{ color: "#666", fontSize: 14 }}>{p.category?.name}</p>
             <p style={{ fontWeight: 600 }}>${(p.priceCents / 100).toFixed(2)}</p>
-            <p style={{ fontSize: 12, color: p.stock > 0 ? "#2a7a2a" : "#b00020" }}>
-              {p.stock > 0 ? `${p.stock} in stock` : "Out of stock"}
+            <p
+              style={{
+                fontSize: 12,
+                color: p.stock === 0 ? "#b00020" : p.stock <= 5 ? "#d97706" : "#2a7a2a",
+              }}
+            >
+              {p.stock === 0
+                ? "Out of stock"
+                : p.stock <= 5
+                ? `Low stock: Only ${p.stock} left`
+                : `${p.stock} in stock`}
             </p>
             <button
               onClick={() => handleAdd(p)}
