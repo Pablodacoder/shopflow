@@ -11,7 +11,7 @@ function getCsrfToken() {
 export default function AdminPage() {
   const [metrics, setMetrics] = useState(null);
   const [categories, setCategories] = useState([]);
-  const [form, setForm] = useState({ sku: "", name: "", description: "", priceCents: "", stock: "", categoryId: "" });
+  const [form, setForm] = useState({ sku: "", name: "", description: "", priceCents: "", stock: "", categoryId: "", imageUrl: "" });
   const [status, setStatus] = useState({ loading: false, error: null, success: null });
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function AdminPage() {
         throw new Error(res.status === 403 ? "Admin access required." : data.error || "Failed to create product");
       }
       setStatus({ loading: false, error: null, success: `Created "${data.name}"` });
-      setForm({ sku: "", name: "", description: "", priceCents: "", stock: "", categoryId: "" });
+      setForm({ sku: "", name: "", description: "", priceCents: "", stock: "", categoryId: "", imageUrl: "" });
     } catch (err) {
       setStatus({ loading: false, error: err.message, success: null });
     }
@@ -64,6 +64,7 @@ export default function AdminPage() {
           <input placeholder="SKU" required value={form.sku} onChange={(e) => setForm({ ...form, sku: e.target.value })} style={inputStyle} />
           <input placeholder="Name" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} style={inputStyle} />
           <textarea placeholder="Description" required value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} style={inputStyle} />
+          <input placeholder="Image URL" value={form.imageUrl} onChange={(e) => setForm({ ...form, imageUrl: e.target.value })} style={inputStyle} />
           <input placeholder="Price (cents)" type="number" required value={form.priceCents} onChange={(e) => setForm({ ...form, priceCents: e.target.value })} style={inputStyle} />
           <input placeholder="Stock" type="number" required value={form.stock} onChange={(e) => setForm({ ...form, stock: e.target.value })} style={inputStyle} />
           <select required value={form.categoryId} onChange={(e) => setForm({ ...form, categoryId: e.target.value })} style={inputStyle}>
